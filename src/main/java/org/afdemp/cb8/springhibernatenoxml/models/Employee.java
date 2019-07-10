@@ -1,6 +1,7 @@
 package org.afdemp.cb8.springhibernatenoxml.models;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,11 +39,23 @@ public class Employee {
 	@NotNull
 	@Digits(integer=8, fraction=2)
 	@Column(name = "SALARY", nullable = false)
-	private BigDecimal salary;
+	private float salary;
 	
 	@NotEmpty
 	@Column(name = "SSN", unique=true, nullable = false)
 	private String ssn;
+
+    public Employee(String name, LocalDate joiningDate, float salary, String ssn) {
+        this.name = name;
+        this.joiningDate = joiningDate;
+        this.salary = salary;
+        this.ssn = ssn;
+    }
+
+    public Employee() {
+    }
+
+   
 
 	public int getId() {
 		return id;
@@ -68,11 +81,11 @@ public class Employee {
 		this.joiningDate = joiningDate;
 	}
 
-	public BigDecimal getSalary() {
+	public float getSalary() {
 		return salary;
 	}
 
-	public void setSalary(BigDecimal salary) {
+	public void setSalary(float salary) {
 		this.salary = salary;
 	}
 
