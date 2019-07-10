@@ -65,6 +65,7 @@ public class TestController {
         return "update";
     }
             
-            
+//    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    
 
 }
